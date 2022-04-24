@@ -15,3 +15,5 @@ export const currentUser = derived([users, authUser], ([$users, $authUser]) => {
 
 	return us
 })
+
+export const nameOf = (id: string, users: User[]) => users?.find((u) => u.id === id)?.name

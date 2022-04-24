@@ -2,11 +2,9 @@
 	import { loginWithGoogle } from '../modules/auth'
 
 	import { notes } from '../modules/notes.store'
-	import { currentUser, users } from '../modules/user.store'
+	import { currentUser, users, nameOf } from '../modules/user.store'
 
 	$: title = $currentUser ? `${$currentUser.name}'s` : 'My'
-
-	const nameOf = (id: string) => $users?.find((u) => u.id === id)?.name
 </script>
 
 <main class="px-8 py-5 min-h-full">
@@ -27,7 +25,7 @@
 					</div>
 
 					<div class="bg-pink-100 px-4 py-2 rounded-b-xl text-center">
-						{nameOf(note.from)}
+						{nameOf(note.from, $users)}
 					</div>
 				</div>
 			{:else}
