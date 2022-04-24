@@ -1,10 +1,30 @@
 <script lang="ts">
-	const name = 'Poom'
+	const nickname = 'Poom'
+
+	const notes = [
+		{ from: 'Poom', message: 'Hey' },
+		{ from: 'Chun', message: 'Welcome' }
+	]
 </script>
 
-<main class="px-8 py-5 space-y-4">
-	<section>
-		<h1 class="text-2xl font-bold">Dropbox Online</h1>
+<main class="px-8 py-5 min-h-full">
+	<section class="space-y-4">
+		<h1 class="text-2xl font-bold">{nickname}'s Dropbox</h1>
+
+		<div class="flex flex-wrap items-center justify-center sm:justify-start space-x-5">
+			{#each notes as note}
+				<div class="font-bold w-full max-w-[240px] relative">
+					<div class="bg-blue-50 px-4 py-4 min-h-[180px] rounded-t-xl">
+						{note.message}
+					</div>
+					<div class="bg-blue-100 px-4 py-2 rounded-b-xl text-center">
+						{note.from}
+					</div>
+				</div>
+			{:else}
+				<div>Your dropbox is empty.</div>
+			{/each}
+		</div>
 	</section>
 </main>
 
