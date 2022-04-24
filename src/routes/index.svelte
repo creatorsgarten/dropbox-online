@@ -2,8 +2,8 @@
 	const nickname = 'Poom'
 
 	const notes = [
-		{ from: 'Poom', message: 'Hey' },
-		{ from: 'Chun', message: 'Welcome' }
+		{ from: 'Poom', message: 'สวัสดีครับ' },
+		{ from: 'Chun', message: 'ว่ายังไงบ้าง' }
 	]
 </script>
 
@@ -14,10 +14,11 @@
 		<div class="flex flex-wrap items-center justify-center sm:justify-start space-x-5">
 			{#each notes as note}
 				<div class="font-bold w-full max-w-[240px] relative">
-					<div class="bg-blue-50 px-4 py-4 min-h-[180px] rounded-t-xl">
+					<div class="absolute right-0 arrow-topright" />
+					<div class="bg-pink-50 px-4 py-4 min-h-[180px] rounded-t-xl">
 						{note.message}
 					</div>
-					<div class="bg-blue-100 px-4 py-2 rounded-b-xl text-center">
+					<div class="bg-pink-100 px-4 py-2 rounded-b-xl text-center">
 						{note.from}
 					</div>
 				</div>
