@@ -1,11 +1,19 @@
-import { query, collection } from 'firebase/firestore'
+import { derived, type Readable } from 'svelte/store'
+import { query, collection, where, onSnapshot } from 'firebase/firestore'
 
-import { db, intoStore } from './firebase'
+import { db } from './firebase'
+import { authUser } from './auth'
 
-interface Note {
-	from: string
-	message: string
-}
+import type { Note } from '../types/Note'
 
-const notesRef = query(collection(db, 'notes'))
-export const notes = intoStore<Note>(notesRef)
+const notesRef = collection(db, 'notes')
+
+export const notes: Readable<Note[]> = derived([authUser], ([user], set) => {
+	if (!user) return set([])
+
+	const notesQuery = query(notesRef, where('to', '==', user.id))
+
+	onSnapshot(notesQuery, (snapshot) => {
+		set(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Note)))
+	})
+})

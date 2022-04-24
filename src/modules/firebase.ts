@@ -16,7 +16,11 @@ const config = {
 export const app = initializeApp(config, 'app')
 export const db = getFirestore(app)
 
+type ID = { id: string }
+
 export const intoStore = <T>(query: Query) =>
-	readable<T[]>([], (set) => {
-		onSnapshot(query, (snap) => set(snap.docs.map((doc) => doc.data() as T)))
+	readable<(T & ID)[]>([], (set) => {
+		onSnapshot(query, (snap) => {
+			set(snap?.docs?.map((doc) => ({ ...doc.data(), id: doc.id } as T & ID)))
+		})
 	})
