@@ -8,12 +8,16 @@ import type { Note } from '../types/Note'
 
 const notesRef = collection(db, 'notes')
 
-export const notes: Readable<Note[]> = derived([authUser], ([user], set) => {
-	if (!user) return set([])
+export const notes: Readable<Note[]> = derived(
+	[authUser],
+	([user], set) => {
+		// if (!user) return
 
-	const notesQuery = query(notesRef, where('to', '==', user.id))
+		const notesQuery = query(notesRef, where('to', '==', user.id))
 
-	onSnapshot(notesQuery, (snapshot) => {
-		set(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Note)))
-	})
-})
+		onSnapshot(notesQuery, (snapshot) => {
+			set(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Note)))
+		})
+	},
+	[]
+)

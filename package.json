@@ -30,6 +30,7 @@
 	"type": "module",
 	"dependencies": {
 		"autoprefixer": "^10.4.2",
+		"classnames": "^2.3.1",
 		"firebase": "^9.6.11",
 		"postcss": "^8.4.7",
 		"tailwindcss": "^3.0.23"
