@@ -1,10 +1,7 @@
 <script lang="ts">
-	const nickname = 'Poom'
+	import { notes } from '../modules/notes.store'
 
-	const notes = [
-		{ from: 'Poom', message: 'สวัสดีครับ' },
-		{ from: 'Chun', message: 'ว่ายังไงบ้าง' }
-	]
+	const nickname = 'Poom'
 </script>
 
 <main class="px-8 py-5 min-h-full">
@@ -12,7 +9,7 @@
 		<h1 class="text-2xl font-bold">{nickname}'s Dropbox</h1>
 
 		<div class="flex flex-wrap items-center justify-center sm:justify-start space-x-5">
-			{#each notes as note}
+			{#each $notes as note}
 				<div class="font-bold w-full max-w-[240px] relative">
 					<div class="absolute right-0 arrow-topright" />
 					<div class="bg-pink-50 px-4 py-4 min-h-[180px] rounded-t-xl">
