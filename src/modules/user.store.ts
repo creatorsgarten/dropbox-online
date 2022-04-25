@@ -23,7 +23,7 @@ export const currentUser: Readable<User> = derived([authUser], ([auth], set) => 
 
 	const userRef = doc(usersRef, auth.id)
 
-	onSnapshot(userRef, async (user) => {
+	return onSnapshot(userRef, async (user) => {
 		if (!user.exists()) {
 			await setDoc(userRef, { id: auth.id, name: null, photo: null, instagram: null })
 		}

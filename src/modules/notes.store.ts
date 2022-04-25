@@ -15,7 +15,7 @@ export const notes: Readable<Note[]> = derived(
 
 		const notesQuery = query(notesRef, where('to', '==', user.id))
 
-		onSnapshot(notesQuery, (snapshot) => {
+		return onSnapshot(notesQuery, (snapshot) => {
 			set(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Note)))
 		})
 	},
