@@ -21,9 +21,14 @@ const google = new GoogleAuthProvider()
 export const loginWithEmail = (email: string, password: string) =>
   signInWithEmailAndPassword(auth, email, password)
 
-export const loginWithGoogle = () => signInWithRedirect(auth, google)
+export const loginWithGoogle = () => {
+  signInWithRedirect(auth, google)
+}
 
-export const logout = () => signOut(auth)
+export const logout = () => {
+  signOut(auth)
+  window.location.reload()
+}
 
 export const authUser = readable<AuthUser>(null, (set) => {
   return auth.onAuthStateChanged(async (u) => {
