@@ -1,18 +1,36 @@
-import { derived, get } from 'svelte/store'
-import { query, collection, setDoc, doc } from 'firebase/firestore'
+import { derived, get, type Readable } from 'svelte/store'
+import {
+	query,
+	collection,
+	setDoc,
+	doc,
+	getDoc,
+	CollectionReference,
+	onSnapshot
+} from 'firebase/firestore'
 
 import { authUser } from './auth'
 import { db, intoStore } from './firebase'
 
 import type { User } from '../types/User'
 
-export const usersRef = collection(db, 'users')
+export const usersRef = collection(db, 'users') as CollectionReference<User>
 export const usersQuery = query(usersRef)
 export const users = intoStore<User>(usersQuery)
 
-export const currentUser = derived([users, authUser], ([$users, $authUser]) =>
-	$users.find((u) => u.id === $authUser?.id)
-)
+export const currentUser: Readable<User> = derived([authUser], ([auth], set) => {
+	if (!auth) return
+
+	const userRef = doc(usersRef, auth.id)
+
+	onSnapshot(userRef, async (user) => {
+		if (!user.exists()) {
+			await setDoc(userRef, { id: auth.id, name: null, photo: null, instagram: null })
+		}
+
+		set(user.data())
+	})
+})
 
 export function setUser(user: Partial<User>) {
 	const auth = get(authUser)

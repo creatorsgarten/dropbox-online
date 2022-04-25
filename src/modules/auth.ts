@@ -28,13 +28,6 @@ export const authUser = readable<AuthUser>(null, (set) => {
 
 		await u.getIdTokenResult()
 
-		const { uid, displayName, email, photoURL } = auth.currentUser
-
-		set({
-			id: uid,
-			email,
-			photo: photoURL,
-			name: displayName
-		})
+		set({ id: u.uid, email: u.email, photo: u.photoURL, name: u.displayName })
 	})
 })
