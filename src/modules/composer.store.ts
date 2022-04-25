@@ -31,5 +31,5 @@ export async function sendMessage() {
 
 	await addDoc(notesRef, { from: auth.id, to: state.receiver, message: state.message })
 
-	closeComposer()
+	composer.set(defaultComposerState)
 }

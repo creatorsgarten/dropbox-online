@@ -10,7 +10,7 @@
 		กล่องจดหมายของ{$currentUser?.name ?? 'ฉัน'}
 	</h1>
 
-	<div class="flex flex-wrap items-center justify-center sm:justify-start space-x-5">
+	<div class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 items-center gap-4 space-y-4">
 		{#each $notes as note}
 			<Note {note} />
 		{:else}
