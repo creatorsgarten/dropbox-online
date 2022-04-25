@@ -30,10 +30,10 @@
 >
   {#if $authUser.id === from}
     <button
-      class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-300 text-neutral-400 shadow-md"
+      class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-300 text-neutral-400 hover:bg-neutral-600 shadow-md"
       on:click={() => deleteNote(note.id)}
     >
-      <i class="fa-solid fa-xmark" />
+      <i class="fa-solid fa-trash fa-xs" />
     </button>
   {/if}
 
