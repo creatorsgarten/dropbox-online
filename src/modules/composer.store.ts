@@ -19,11 +19,10 @@ const defaultComposerState: ComposerState = {
 
 export const composer = writable(defaultComposerState)
 
-export function openComposer(userId: string) {
-  composer.set({ ...get(composer), open: true, receiver: userId })
-}
+export const openComposer = (userId: string) =>
+  composer.update((u) => ({ ...u, open: true, receiver: userId }))
 
-export const closeComposer = () => composer.set({ ...get(composer), open: false })
+export const closeComposer = () => composer.update((u) => ({ ...u, open: false }))
 
 export async function sendMessage() {
   const auth = get(authUser)
