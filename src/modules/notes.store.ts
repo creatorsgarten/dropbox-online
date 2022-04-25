@@ -1,9 +1,9 @@
 import { query, collection, where, CollectionReference } from 'firebase/firestore'
 
 import { db } from './firebase'
+import { createQueryStore } from './query.firebase'
 
 import type { Note } from '../types/Note'
-import { createQueryStore } from './query.firebase'
 
 export const notesRef = collection(db, 'notes') as CollectionReference<Omit<Note, 'id'>>
 

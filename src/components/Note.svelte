@@ -1,11 +1,17 @@
 <script lang="ts">
-  import { nameOf, users } from '../modules/user.store'
-  import { toBackgroundAsync, toColor } from '../modules/background.composer'
   import { onMount } from 'svelte'
 
-  export let message: string
-  export let sender: string
-  export let background: string | undefined
+  import { authUser } from '../modules/auth'
+  import { deleteNote } from '../modules/delete.notes'
+  import { nameOf, users } from '../modules/user.store'
+  import { toBackgroundAsync, toColor } from '../modules/background.composer'
+
+  import type { Note } from '../types/Note'
+
+  export let note: Note
+  export let outbox = false
+
+  const { background, from, to, message } = note
 
   let bg = ''
   let color = ''
@@ -22,6 +28,15 @@
   style:color={background ? 'white' : null}
   class:shadow-gray-200={background}
 >
+  {#if $authUser.id === from}
+    <button
+      class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-300 text-neutral-400 shadow-md"
+      on:click={() => deleteNote(note.id)}
+    >
+      <i class="fa-solid fa-xmark" />
+    </button>
+  {/if}
+
   <div
     class="h-full min-h-[180px] rounded-t-xl bg-green-50 px-4 py-4"
     style:background-image={bg}
@@ -38,6 +53,6 @@
     style:background-image={bg}
     style:background-color={color}
   >
-    {nameOf(sender, $users)}
+    {nameOf(outbox ? to : from, $users)}
   </div>
 </div>
