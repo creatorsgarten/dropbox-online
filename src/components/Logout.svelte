@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { logout } from '../modules/auth'
-	import { currentUser } from '../modules/user.store'
+  import { logout } from '../modules/auth'
+  import { currentUser } from '../modules/user.store'
 </script>
 
 {#if $currentUser}
-	<button
-		on:click={logout}
-		class="bg-gray-500 hover:bg-gray-700 text-white px-3 py-2 rounded-lg shadow-lg shadow-gray-100 text-xs font-light"
-	>
-		ออกจากระบบ
-	</button>
+  <button
+    on:click={logout}
+    class="rounded-lg bg-gray-500 px-3 py-2 text-xs font-light text-white shadow-lg shadow-gray-100 hover:bg-gray-700"
+  >
+    ออกจากระบบ
+  </button>
 {/if}
