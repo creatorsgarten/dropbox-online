@@ -1,7 +1,8 @@
 <script lang="ts">
 	import c from 'classnames'
 
-	import { users, currentUser } from '../modules/user.store'
+	import { authUser } from '../modules/auth'
+	import { users } from '../modules/user.store'
 </script>
 
 <div>
@@ -13,7 +14,7 @@
 				<div
 					class={c(
 						'flex items-center bg-green-300 hover:bg-green-400 shadow-lg shadow-green-100 text-gray-800 px-4 py-3 rounded-lg w-full max-w-[240px] cursor-pointer',
-						user.id === $currentUser.id && 'bg-gray-300 hover:bg-gray-400 shadow-gray-100'
+						user.id === $authUser.id && 'bg-gray-300 hover:bg-gray-400 shadow-gray-100'
 					)}
 				>
 					<div class="text-lg">
@@ -23,7 +24,7 @@
 							<span class="text-sm">@{user.instagram}</span>
 						{/if}
 
-						{#if user.id === $currentUser.id}
+						{#if user.id === $authUser.id}
 							<span class="text-sm">(ฉัน)</span>
 						{/if}
 					</div>
