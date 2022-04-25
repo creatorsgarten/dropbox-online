@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 
 import { readable } from 'svelte/store'
 import { type Query, onSnapshot, getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/storage'
 
 const config = {
 	apiKey: 'AIzaSyBSaj6lX5QJyZsGoslKzrF2704fhiRfYVg',
@@ -15,6 +16,7 @@ const config = {
 
 export const app = initializeApp(config, 'app')
 export const db = getFirestore(app)
+export const storage = getStorage(app)
 
 type ID = { id: string }
 

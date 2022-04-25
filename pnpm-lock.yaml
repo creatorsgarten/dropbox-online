@@ -16,6 +16,7 @@ specifiers:
   prettier-plugin-svelte: ^2.5.0
   svelte: ^3.44.0
   svelte-check: ^2.2.6
+  svelte-file-dropzone: ^1.0.0-dev.1
   svelte-preprocess: ^4.10.1
   tailwindcss: ^3.0.23
   tslib: ^2.3.1
@@ -26,6 +27,7 @@ dependencies:
   classnames: 2.3.1
   firebase: 9.6.11
   postcss: 8.4.7
+  svelte-file-dropzone: 1.0.0-dev.1
   tailwindcss: 3.0.23_autoprefixer@10.4.2
 
 devDependencies:
@@ -1614,6 +1616,13 @@ packages:
       flat-cache: 3.0.4
     dev: true
 
+  /file-selector/0.2.4:
+    resolution: {integrity: sha512-ZDsQNbrv6qRi1YTDOEWzf5J2KjZ9KMI1Q2SGeTkCJmNNW25Jg4TW4UMcmoqcg4WrAyKRcpBXdbWRxkfrOzVRbA==}
+    engines: {node: '>= 10'}
+    dependencies:
+      tslib: 2.3.1
+    dev: false
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -2479,6 +2488,12 @@ packages:
       - stylus
       - sugarss
     dev: true
+
+  /svelte-file-dropzone/1.0.0-dev.1:
+    resolution: {integrity: sha512-u0kxaUsgXiNBye0EzP+NlyA2/AlgtvtvmP6ywfDxBx8kRzld7Yeo34KIKTpD/R7qYy4YhqTu0OA1V0fwY1/IoQ==}
+    dependencies:
+      file-selector: 0.2.4
+    dev: false
 
   /svelte-hmr/0.14.9_svelte@3.46.4:
     resolution: {integrity: sha512-bKE9+4qb4sAnA+TKHiYurUl970rjA0XmlP9TEP7K/ncyWz3m81kA4HOgmlZK/7irGK7gzZlaPDI3cmf8fp/+tg==}

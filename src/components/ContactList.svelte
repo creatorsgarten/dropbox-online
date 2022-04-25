@@ -9,7 +9,7 @@
 		<section class="flex flex-wrap items-center space-x-4">
 			{#each $users as user}
 				<div
-					class="flex items-center bg-green-300 shadow-lg shadow-green-200 text-gray-800 px-4 py-3 rounded-lg w-full max-w-[240px]"
+					class="flex items-center bg-green-300 hover:bg-green-400 shadow-lg shadow-green-200 text-gray-800 px-4 py-3 rounded-lg w-full max-w-[240px] cursor-pointer"
 				>
 					<div class="text-lg">
 						<span>{user.name}</span>
