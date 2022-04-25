@@ -17,3 +17,12 @@ body {
   border-width: 0 40px 40px 0;
   border-color: transparent #fbe7f3 transparent transparent;
 }
+
+@layer components {
+  .btn {
+    @apply cursor-pointer text-black font-semibold hover:text-primary transition-all ease-in-out duration-200;
+  }
+  .btn-logout {
+    @apply cursor-pointer text-primary-dark font-semibold hover:text-primary transition-all ease-in-out duration-200;
+  }
+}
