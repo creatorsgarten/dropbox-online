@@ -22,8 +22,8 @@
       <div
         class="bg-zinc-900 relative mx-4 w-full max-w-[1000px] rounded-md shadow-lg shadow-neutral-700 sm:mx-8 md:mx-12 bg-cover"
         transition:fly={{ easing: sineInOut, duration: 200, y: 50 }}
-        style:background-image={$background ?? null}
         style:background-color={$color ?? null}
+        style:background-image={$background ?? null}
         style:background-size="cover"
         style:background-position="center center"
       >
