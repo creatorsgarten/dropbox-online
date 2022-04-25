@@ -2,7 +2,10 @@
   import { fade, fly } from 'svelte/transition'
   import { sineInOut } from 'svelte/easing'
 
+  import BackdropSwatch from './BackdropSwatch.svelte'
+
   import { nameOf, users } from '../modules/user.store'
+  import { background, color } from '../modules/background.composer'
   import { closeComposer, composer, sendMessage } from '../modules/composer.store'
 </script>
 
@@ -17,10 +20,14 @@
       />
 
       <div
-        class="relative mx-4 w-full max-w-[1000px] rounded-md shadow-lg shadow-neutral-700 sm:mx-8 md:mx-12"
+        class="bg-zinc-900 relative mx-4 w-full max-w-[1000px] rounded-md shadow-lg shadow-neutral-700 sm:mx-8 md:mx-12 bg-cover"
         transition:fly={{ easing: sineInOut, duration: 200, y: 50 }}
+        style:background-image={$background ?? null}
+        style:background-color={$color ?? null}
       >
-        <div class="relative w-full rounded-t-md bg-neutral-900 px-2 py-2">
+        <div
+          class="relative w-full rounded-t-md bg-neutral-900 px-2 py-2 opacity-90 backdrop-blur-3xl"
+        >
           <h1 class="text-center text-sm font-medium text-gray-300">
             เขียนข้อความถึง{nameOf($composer.receiver, $users)}
           </h1>
@@ -33,7 +40,7 @@
           </button>
         </div>
 
-        <div class="relative w-full border-y-[1px] border-zinc-800 bg-zinc-900 px-2 py-2">
+        <div class="relative w-full border-y-[1px] border-zinc-800 px-2 py-2">
           <textarea
             class="h-full min-h-[300px] w-full bg-transparent px-2 py-2 text-xl font-light text-white outline-none placeholder:text-gray-200"
             placeholder="เขียนอะไรดีนะ..."
@@ -41,8 +48,10 @@
           />
         </div>
 
-        <div class="flex justify-between rounded-b-md bg-neutral-900 px-4 py-2 text-white">
-          <div />
+        <div
+          class="flex justify-between rounded-b-md bg-neutral-900 px-4 py-2 text-white opacity-90 backdrop-blur-3xl"
+        >
+          <BackdropSwatch />
 
           <button class="rounded-sm bg-pink-400 px-3 py-1 hover:bg-pink-500" on:click={sendMessage}>
             <i class="fa-solid fa-paper-plane mr-1" /> <span>ส่งข้อความ</span>
