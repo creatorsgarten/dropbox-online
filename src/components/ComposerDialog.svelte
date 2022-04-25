@@ -26,7 +26,7 @@
           </h1>
 
           <button
-            class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-red-500 text-white shadow-md"
+            class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-600 text-neutral-300 shadow-md"
             on:click={closeComposer}
           >
             <i class="fa-solid fa-xmark" />
