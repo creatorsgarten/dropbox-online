@@ -75,14 +75,22 @@
         </div>
         <div class="mb-4">
           <div class="shrink-0">
-            <label class="mb-1 block" for="password">รูปโปรไฟล์</label>
-            <input
-              id="photo"
-              type="file"
-              name="photo"
-              class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 disabled:bg-gray-100"
-              bind:files
-            />
+            <label class="mb-1 block" for="photo">รูปโปรไฟล์</label>
+            <input id="photo" type="file" name="photo" class="hidden" bind:files />
+            <label
+              class="mt-1 block w-full cursor-pointer rounded-md border border-gray-300 bg-white py-2 px-3 font-normal shadow-sm transition focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 active:bg-gray-100 disabled:bg-gray-100"
+              for="photo"
+              tabindex="0"
+            >
+              {#if photo}
+                <span>{photo}</span>
+              {:else}
+                <span>
+                  <i class="fa-solid fa-upload mr-1" />
+                  คลิกเพื่ออัพโหลดไฟล์
+                </span>
+              {/if}
+            </label>
           </div>
         </div>
         <div class="mt-6">
