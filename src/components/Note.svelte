@@ -23,12 +23,14 @@
   class:shadow-gray-200={background}
 >
   <div
-    class="min-h-[180px] rounded-t-xl bg-green-50 px-4 py-4"
+    class="h-full min-h-[180px] rounded-t-xl bg-green-50 px-4 py-4"
     style:background-image={bg}
     style:background-size="cover"
     style:background-color={color}
   >
-    {message}
+    <p class="whitespace-pre-wrap">
+      {message}
+    </p>
   </div>
 
   <div
