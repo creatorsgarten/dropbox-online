@@ -2,6 +2,7 @@
 	import { fade, fly } from 'svelte/transition'
 	import { sineInOut } from 'svelte/easing'
 
+	import { nameOf, users } from '../modules/user.store'
 	import { closeComposer, composer } from '../modules/composer.store'
 </script>
 
@@ -20,7 +21,9 @@
 				transition:fly={{ easing: sineInOut, duration: 200, y: 50 }}
 			>
 				<div class="w-full bg-neutral-900 rounded-t-md relative px-2 py-2">
-					<h1 class="text-center text-sm text-gray-300 font-medium">เขียนข้อความ</h1>
+					<h1 class="text-center text-sm text-gray-300 font-medium">
+						เขียนข้อความถึง{nameOf($composer.receiver, $users)}
+					</h1>
 
 					<button
 						class="flex absolute items-center justify-center text-white top-[-7px] right-[-7px] w-6 h-6 bg-red-500 rounded-full shadow-md cursor-pointer"
