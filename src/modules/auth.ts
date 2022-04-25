@@ -5,7 +5,8 @@ import {
 	signInWithRedirect,
 	GoogleAuthProvider,
 	signInWithEmailAndPassword,
-	signOut
+	signOut,
+	browserLocalPersistence
 } from 'firebase/auth'
 
 import { app } from './firebase'
@@ -13,6 +14,8 @@ import { app } from './firebase'
 import type { AuthUser } from '../types/User'
 
 const auth = getAuth(app)
+auth.setPersistence(browserLocalPersistence)
+
 const google = new GoogleAuthProvider()
 
 export const loginWithEmail = (email: string, password: string) =>
