@@ -1,5 +1,6 @@
 <script lang="ts">
   import Inbox from '../components/Inbox.svelte'
+  import Outbox from '../components/Outbox.svelte'
   import Composer from '../components/ComposerDialog.svelte'
   import GoogleLogin from '../components/GoogleLogin.svelte'
   import ContactList from '../components/ContactList.svelte'
@@ -12,6 +13,7 @@
   {#if $currentUser}
     <div class="space-y-8">
       <Inbox />
+      <Outbox />
       <ContactList />
       <EditProfile />
       <Composer />
