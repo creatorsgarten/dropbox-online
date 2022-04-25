@@ -9,7 +9,7 @@
 <div class="items-center justify-center space-x-2 hidden sm:flex">
   <Swatch on:click={() => setNoteBackground(null)} background={null} />
   <Swatch on:click={() => setNoteBackground(blue)} background={blue} />
-  <Swatch on:click={() => setNoteBackdrop('1.jpg')} background="#59409A" />
+  <Swatch on:click={() => setNoteBackdrop('gold.jpg')} background="#f9ca24" />
 </div>
 
 <style></style>
