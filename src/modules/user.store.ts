@@ -19,7 +19,7 @@ export const usersQuery = query(usersRef)
 export const users = intoStore<User>(usersQuery)
 
 export const currentUser: Readable<User> = derived([authUser], ([auth], set) => {
-	if (!auth) return
+	if (!auth) return set(null)
 
 	const userRef = doc(usersRef, auth.id)
 
