@@ -12,7 +12,7 @@
 
   <div class="grid items-center gap-4 gap-y-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
     {#each $inbox as note}
-      <Note message={note.message} sender={note.from} />
+      <Note message={note.message} sender={note.from} background={note.background} />
     {:else}
       <div>กล่องจดหมายยังว่างเปล่า...</div>
     {/each}
