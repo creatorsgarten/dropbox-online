@@ -33,12 +33,12 @@
   {#if $currentUser}
     <Navbar />
     <div
-      class="w-full min-h-[30rem] bg-gray-50 flex flex-col sm:justify-center items-center px-3 sm:pt-28 pt-2"
+      class="flex min-h-[30rem] w-full flex-col items-center bg-gray-50 px-3 pt-2 sm:justify-center sm:pt-28"
     >
-      <div class="w-full sm:max-w-md p-5 mx-auto">
+      <div class="mx-auto w-full p-5 sm:max-w-md">
         <h2 class="mb-12 text-center text-3xl font-extrabold text-gray-600">แก้ไขโปรไฟล์</h2>
         <div>
-          <div class="flex justify-center items-center">
+          <div class="flex items-center justify-center">
             <!-- <img
 							class="rounded-full h-32 w-32"
 							src={photo
@@ -46,48 +46,48 @@
 								: src}
 							alt="profile"
 						/> -->
-            <div class="bg-gradient-to-r from-primary to-primary-dark rounded-full h-32 w-32" />
+            <div class="h-32 w-32 rounded-full bg-gradient-to-r from-primary to-primary-dark" />
           </div>
         </div>
         <div class="mb-4">
-          <label class="block mb-1" for="nick">ชื่อเล่น</label>
+          <label class="mb-1 block" for="nick">ชื่อเล่น</label>
           <input
             id="nick"
             type="text"
             name="nick"
             placeholder="เช่น พี่ภูมิ"
-            class="py-2 px-3 border border-gray-300 focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"
+            class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 disabled:bg-gray-100"
             bind:value={name}
             on:blur={save}
           />
         </div>
         <div class="mb-4">
-          <label class="block mb-1" for="password">อินสตาแกรม</label>
+          <label class="mb-1 block" for="password">อินสตาแกรม</label>
           <input
             id="instagram"
             type="text"
             name="instagram"
             placeholder="เช่น phoomparin"
-            class="py-2 px-3 border border-gray-300 focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"
+            class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 disabled:bg-gray-100"
             bind:value={instagram}
             on:blur={save}
           />
         </div>
         <div class="mb-4">
           <div class="shrink-0">
-            <label class="block mb-1" for="password">รูปโปรไฟล์</label>
+            <label class="mb-1 block" for="password">รูปโปรไฟล์</label>
             <input
               id="photo"
               type="file"
               name="photo"
-              class="py-2 px-3 border border-gray-300 focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"
+              class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:ring-opacity-50 disabled:bg-gray-100"
               bind:files
             />
           </div>
         </div>
         <div class="mt-6">
           <button
-            class="w-full inline-flex items-center justify-center px-4 py-2 bg-primary border border-transparent rounded-md font-semibold capitalize text-white hover:bg-green-400 active:bg-green-500 focus:outline-none focus:border-x-green-500 focus:ring focus:ring-primary-light disabled:opacity-25 transition"
+            class="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 font-semibold capitalize text-white transition hover:bg-green-400 focus:border-x-green-500 focus:outline-none focus:ring focus:ring-primary-light active:bg-green-500 disabled:opacity-25"
             on:click={save}>แก้ไขโปรไฟล์</button
           >
         </div>

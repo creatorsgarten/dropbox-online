@@ -2,11 +2,11 @@
   import { loginWithGoogle } from '../modules/auth'
 </script>
 
-<div class="flex items-center justify-center h-screen flex-col space-y-8">
-  <div class="font-bold text-3xl">Dropbox Online</div>
+<div class="flex h-screen flex-col items-center justify-center space-y-8">
+  <div class="text-3xl font-bold">Dropbox Online</div>
   <button
     on:click={loginWithGoogle}
-    class="bg-primary text-white px-4 py-2 rounded-lg shadow-lg shadow-primary-light text-lg font-light hover:shadow-primary hover:shadow-md hover:bg-primary-dark transition-all ease-in-out duration-300"
+    class="rounded-lg bg-primary px-4 py-2 text-lg font-light text-white shadow-lg shadow-primary-light transition-all duration-300 ease-in-out hover:bg-primary-dark hover:shadow-md hover:shadow-primary"
     >Login with Google</button
   >
 </div>

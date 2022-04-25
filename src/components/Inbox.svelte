@@ -7,7 +7,7 @@
 
 <main class="space-y-4">
   <h1 class="text-2xl">
-    📢 กล่องจดหมายของ <span class="underline underline-offset-2 text-primary-dark font-bold"
+    📢 กล่องจดหมายของ <span class="font-bold text-primary-dark underline underline-offset-2"
       >{$currentUser?.name ?? 'ฉัน'}</span
     >
   </h1>

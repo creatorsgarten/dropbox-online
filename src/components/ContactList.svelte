@@ -15,7 +15,7 @@
         <div
           on:click={() => openComposer(user.id)}
           class={c(
-            'flex w-full max-w-[240px] cursor-pointer items-center rounded-lg bg-primary px-4 py-3 text-gray-50 transition-all duration-300 ease-in-out shadow-lg shadow-green-100 hover:bg-green-400',
+            'flex w-full max-w-[240px] cursor-pointer items-center rounded-lg bg-primary px-4 py-3 text-gray-50 shadow-lg shadow-green-100 transition-all duration-300 ease-in-out hover:bg-green-400',
             user.id === $authUser.id && 'bg-gray-300 shadow-gray-100 hover:bg-gray-400'
           )}
         >

@@ -23,14 +23,14 @@
 </script>
 
 <div
-  class="relative w-full max-w-[240px] rounded-xl shadow-lg shadow-green-100 cursor-pointer"
+  class="relative w-full max-w-[240px] cursor-pointer rounded-xl shadow-lg shadow-green-100"
   on:click
   style:color={background ? 'white' : null}
   class:shadow-gray-200={background}
 >
   {#if $authUser.id === from}
     <button
-      class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-300 text-neutral-400 hover:bg-neutral-600 shadow-md"
+      class="absolute top-[-7px] right-[-7px] flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-neutral-300 text-neutral-400 shadow-md hover:bg-neutral-600"
       on:click={() => deleteNote(note.id)}
     >
       <i class="fa-solid fa-trash fa-xs" />

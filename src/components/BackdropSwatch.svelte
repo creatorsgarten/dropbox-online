@@ -6,7 +6,7 @@
   const blue = '#4834d4'
 </script>
 
-<div class="items-center justify-center space-x-2 hidden sm:flex">
+<div class="hidden items-center justify-center space-x-2 sm:flex">
   <Swatch on:click={() => setNoteBackground(null)} background={null} />
   <Swatch on:click={() => setNoteBackground(blue)} background={blue} />
   <Swatch on:click={() => setNoteBackdrop('gold.jpg')} background="#f9ca24" />
