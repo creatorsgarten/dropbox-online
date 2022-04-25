@@ -8,4 +8,7 @@ import { createQueryStore } from './query.firebase'
 export const notesRef = collection(db, 'notes') as CollectionReference<Omit<Note, 'id'>>
 
 export const inbox = createQueryStore<Note>((id) => query(notesRef, where('to', '==', id)))
-export const outbox = createQueryStore<Note>((id) => query(notesRef, where('from', '==', id)))
+
+export const outbox = createQueryStore<Note>((id) =>
+  query(notesRef, where('from', '==', id), where('to', '!=', id))
+)
