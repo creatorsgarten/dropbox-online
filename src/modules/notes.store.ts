@@ -11,8 +11,6 @@ const notesRef = collection(db, 'notes')
 export const notes: Readable<Note[]> = derived(
 	[authUser],
 	([user], set) => {
-		// if (!user) return
-
 		const notesQuery = query(notesRef, where('to', '==', user.id))
 
 		onSnapshot(notesQuery, (snapshot) => {
