@@ -3,7 +3,7 @@
 	import { sineInOut } from 'svelte/easing'
 
 	import { nameOf, users } from '../modules/user.store'
-	import { closeComposer, composer } from '../modules/composer.store'
+	import { closeComposer, composer, sendMessage } from '../modules/composer.store'
 </script>
 
 {#if $composer.open}
@@ -44,7 +44,7 @@
 				<div class="flex justify-between bg-neutral-900 px-4 py-2 rounded-b-md text-white">
 					<div />
 
-					<button class="bg-pink-400 hover:bg-pink-500 px-3 py-1 rounded-sm">
+					<button class="bg-pink-400 hover:bg-pink-500 px-3 py-1 rounded-sm" on:click={sendMessage}>
 						<i class="fa-solid fa-paper-plane mr-1" /> <span>ส่งข้อความ</span>
 					</button>
 				</div>
