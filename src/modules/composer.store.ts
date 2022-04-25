@@ -35,7 +35,12 @@ export async function sendMessage() {
   const auth = get(authUser)
   const state = get(composer)
 
-  await addDoc(notesRef, { from: auth.id, to: state.receiver, message: state.message })
+  await addDoc(notesRef, {
+    from: auth.id,
+    to: state.receiver,
+    message: state.message,
+    background: state.background
+  })
 
   composer.set(defaultComposerState)
 }
