@@ -3,6 +3,7 @@
 
 	import { authUser } from '../modules/auth'
 	import { users } from '../modules/user.store'
+	import { openComposer } from '../modules/composer.store'
 </script>
 
 <div>
@@ -12,6 +13,7 @@
 		<section class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
 			{#each $users as user}
 				<div
+					on:click={() => openComposer(user.id)}
 					class={c(
 						'flex items-center bg-green-300 hover:bg-green-400 shadow-lg shadow-green-100 text-gray-800 px-4 py-3 rounded-lg w-full max-w-[240px] cursor-pointer',
 						user.id === $authUser.id && 'bg-gray-300 hover:bg-gray-400 shadow-gray-100'

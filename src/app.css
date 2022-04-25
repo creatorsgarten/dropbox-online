@@ -6,6 +6,10 @@ body {
 	font-weight: 300;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 .arrow-topright {
 	width: 0;
 	height: 0;
