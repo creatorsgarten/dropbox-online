@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Logout from './Logout.svelte'
 
-	import { currentUser } from '../modules/user.store'
+	import { currentUser, setUser } from '../modules/user.store'
+
+	let userId = ''
 
 	let name = ''
 	let instagram = ''
@@ -9,11 +11,17 @@
 
 	let files: FileList
 
+	const save = async () => {
+		await setUser({ name, instagram })
+		console.log('set')
+	}
+
 	$: if (files?.length > 0) {
 		photo = files[0].name
 	}
 
-	$: if ($currentUser) {
+	$: if ($currentUser && userId !== $currentUser?.id) {
+		userId = $currentUser.id
 		name = $currentUser.name
 		instagram = $currentUser.instagram
 		photo = $currentUser.photo
@@ -26,13 +34,25 @@
 	<div class="space-y-1">
 		<div class="text-xs">ชื่อเล่น</div>
 
-		<input class="font-light" type="text" placeholder="เช่น พี่ภูมิ" bind:value={name} />
+		<input
+			class="font-light"
+			type="text"
+			placeholder="เช่น พี่ภูมิ"
+			bind:value={name}
+			on:blur={save}
+		/>
 	</div>
 
 	<div class="space-y-1">
 		<div class="text-xs">อินสตาแกรม</div>
 
-		<input class="font-light" type="text" placeholder="เช่น phoomparin" bind:value={instagram} />
+		<input
+			class="font-light"
+			type="text"
+			placeholder="เช่น phoomparin"
+			bind:value={instagram}
+			on:blur={save}
+		/>
 	</div>
 
 	<div class="space-y-2">
