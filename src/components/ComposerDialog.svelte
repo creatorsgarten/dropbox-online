@@ -24,6 +24,8 @@
         transition:fly={{ easing: sineInOut, duration: 200, y: 50 }}
         style:background-image={$background ?? null}
         style:background-color={$color ?? null}
+        style:background-size="cover"
+        style:background-position="center center"
       >
         <div
           class="relative w-full rounded-t-md bg-neutral-900 px-2 py-2 opacity-90 backdrop-blur-3xl"

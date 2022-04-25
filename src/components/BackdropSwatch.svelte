@@ -10,6 +10,7 @@
   <Swatch on:click={() => setNoteBackground(null)} background={null} />
   <Swatch on:click={() => setNoteBackground(blue)} background={blue} />
   <Swatch on:click={() => setNoteBackdrop('gold.jpg')} background="#f9ca24" />
+  <Swatch on:click={() => setNoteBackdrop('2.jpg')} background="#c7ecee" />
 </div>
 
 <style></style>
