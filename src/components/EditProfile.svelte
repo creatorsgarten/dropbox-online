@@ -11,10 +11,7 @@
 
 	let files: FileList
 
-	const save = async () => {
-		await setUser({ name, instagram })
-		console.log('set')
-	}
+	const save = () => setUser({ name, instagram })
 
 	$: if (files?.length > 0) {
 		photo = files[0].name
@@ -40,6 +37,7 @@
 			placeholder="เช่น พี่ภูมิ"
 			bind:value={name}
 			on:blur={save}
+			on:keypress={(e) => e.key === 'Enter' && save()}
 		/>
 	</div>
 
@@ -52,6 +50,7 @@
 			placeholder="เช่น phoomparin"
 			bind:value={instagram}
 			on:blur={save}
+			on:keypress={(e) => e.key === 'Enter' && save()}
 		/>
 	</div>
 

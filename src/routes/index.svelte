@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Inbox from '../components/Inbox.svelte'
-	import Logout from '../components/Logout.svelte'
 	import GoogleLogin from '../components/GoogleLogin.svelte'
 	import ContactList from '../components/ContactList.svelte'
 	import EditProfile from '../components/EditProfile.svelte'
