@@ -9,19 +9,15 @@
 </script>
 
 <div class="px-8 py-5 min-h-full font-light">
-	<div class="space-y-8">
-		{#if !$currentUser}
-			<GoogleLogin />
-		{/if}
-
-		{#if $currentUser}
+	{#if $currentUser}
+		<div class="space-y-8">
 			<Inbox />
-		{/if}
-
-		<ContactList />
-
-		<EditProfile />
-	</div>
+			<ContactList />
+			<EditProfile />
+		</div>
+	{:else}
+		<GoogleLogin />
+	{/if}
 </div>
 
 <style></style>
