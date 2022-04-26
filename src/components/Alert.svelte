@@ -9,6 +9,7 @@
   </div>
 
   <div class="ml-2">
-    เข้าสู่ระบบ <span class="underline underline-offset-2">ครั้งแรก</span> อย่าลืมแก้ไขโปรไฟล์นะครับ
+    เข้าสู่ระบบ <span class="underline underline-offset-2">ครั้งแรก</span> อย่าลืมใส่ ชื่อ-instagram
+    ให้เพื่อน ๆ จำได้นะครับ ❣️
   </div>
 </div>
