@@ -15,12 +15,16 @@ Svelte has different types of stores that can be used in different state circula
 
 ## ⚛️ ⚛️ Reactive expression as svelte's characteristic ⚛️ ⚛️
 
-If you look closely [at the page with a number of states to manage](src/routes/Profile.svelte), you may notice some puzzling symbols. Particularly, the dollar sign ($:). Or you may have tried searching for `setState()` in the codebase and found nothing.
+If you look closely [at the page with a number of states to manage](src/routes/Profile.svelte), you may notice some puzzling symbols. Particularly, the dollar sign `$:`. Or you may have tried searching for `setState()` in the codebase and found nothing.
 
 This is how svelte becomes svelte: it reduces the number of reactive [prologues and epilogues](https://en.wikipedia.org/wiki/Function_prologue_and_epilogue). Only keep the symbols that are absolutely necessary for reactivity in all modules.
 
 - What the heck is dollar sign? 👉🏻 👉🏼 👉🏽 https://svelte.dev/tutorial/reactive-declarations
 - `SetState()`: Are there any more `SetState()` occurrences? 💾 https://svelte.dev/tutorial/reactive-assignments
+
+## Typescript 💻
+
+- TODO
 
 Best wishes, and most importantly, have fun while tapping the keyboard to contribute to our website. 💓💗💖
 
