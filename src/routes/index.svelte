@@ -6,9 +6,15 @@
   import ContactList from '../components/ContactList.svelte'
   import EditProfile from '../components/EditProfile.svelte'
   import Navbar from '../components/Navbar.svelte'
-  import Alert from '../components/Alert.svelte'
 
-  import { currentUser } from '../modules/user.store'
+  import { currentUser, isNewUser } from '../modules/user.store'
+  import { goto } from '$app/navigation'
+
+  currentUser.subscribe((currentUserInfo) => {
+    if (isNewUser(currentUserInfo)) {
+      goto('/Profile')
+    }
+  })
 </script>
 
 <div class="min-h-full font-light">
@@ -16,7 +22,6 @@
     <Navbar />
     <div class="bg-gray-50 px-8 py-5">
       <div class="space-y-8">
-        <Alert />
         <Inbox />
         <Outbox />
         <ContactList />
