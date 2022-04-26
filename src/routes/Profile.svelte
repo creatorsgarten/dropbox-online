@@ -3,7 +3,7 @@
   import Alert from '../components/Alert.svelte'
   import Navbar from '../components/Navbar.svelte'
 
-  import { currentUser, setUser, isNewUser } from '../modules/user.store'
+  import { currentUser, setUser, isUserNameEmpty } from '../modules/user.store'
 
   let userId = ''
 
@@ -33,7 +33,7 @@
 <div class="min-h-full font-light">
   {#if $currentUser}
     <Navbar />
-    {#if isNewUser($currentUser)}
+    {#if isUserNameEmpty($currentUser)}
       <Alert />
     {/if}
     <div

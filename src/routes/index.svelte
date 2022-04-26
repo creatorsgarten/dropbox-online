@@ -7,11 +7,11 @@
   import EditProfile from '../components/EditProfile.svelte'
   import Navbar from '../components/Navbar.svelte'
 
-  import { currentUser, isNewUser } from '../modules/user.store'
+  import { currentUser, isUserNameEmpty } from '../modules/user.store'
   import { goto } from '$app/navigation'
 
   currentUser.subscribe((currentUserInfo) => {
-    if (isNewUser(currentUserInfo)) {
+    if (isUserNameEmpty(currentUserInfo)) {
       goto('/Profile')
     }
   })

@@ -41,5 +41,7 @@ export function setUser(user: Partial<User>) {
 
 export const nameOf = (id: string, users: User[]) => users?.find((u) => u.id === id)?.name
 
-export const isNewUser = (userInfo: User | null) =>
-  userInfo !== null && (userInfo.name ?? '').trim().length === 0
+export const isUserNameEmpty = (userInfo: User | null) =>
+  isUserInfoNotLoadedYet(userInfo) && (userInfo.name ?? '').trim().length === 0
+
+export const isUserInfoNotLoadedYet = (userInfo: User | null) => userInfo !== null
