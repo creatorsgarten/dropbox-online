@@ -1,8 +1,9 @@
 <script lang="ts">
   import GoogleLogin from '../components/GoogleLogin.svelte'
+  import Alert from '../components/Alert.svelte'
   import Navbar from '../components/Navbar.svelte'
 
-  import { currentUser, setUser } from '../modules/user.store'
+  import { currentUser, setUser, isUserNameEmpty } from '../modules/user.store'
 
   let userId = ''
 
@@ -32,6 +33,9 @@
 <div class="min-h-full font-light">
   {#if $currentUser}
     <Navbar />
+    {#if isUserNameEmpty($currentUser)}
+      <Alert />
+    {/if}
     <div
       class="flex min-h-[30rem] w-full flex-col items-center bg-gray-50 px-3 pt-2 sm:justify-center sm:pt-28"
     >
